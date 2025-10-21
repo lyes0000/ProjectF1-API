@@ -30,12 +30,18 @@ RUN pip install --upgrade pip && \
     rm -rf /tmp
 
 # Copy project code
-COPY ./app /app
 WORKDIR /app
+COPY ./app ./
 EXPOSE 8000
 
 # Create non-root user
 RUN adduser --disabled-password --no-create-home django-user
+
+# Create directories outside /app (no permission issues)
+RUN mkdir -p /tmp/f1_cache /tmp/matplotlib && \
+    chown -R django-user:django-user /tmp/f1_cache /tmp/matplotlib
+
+# Switch to non-root user
 USER django-user
 
 # Default command for dev

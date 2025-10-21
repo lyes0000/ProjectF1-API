@@ -36,3 +36,5 @@ tzdata==2025.2
 url-normalize==2.2.1
 urllib3==2.5.0
 websockets==13.1
+python-decouple==3.8
+dj-database-url==3.0.1
