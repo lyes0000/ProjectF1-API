@@ -19,5 +19,5 @@ from django.urls import path
 from api.views import RaceResultsListView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/results', RaceResultsListView.as_view(), name = 'race-result'),
+    path('api/results/', RaceResultsListView.as_view(), name = 'race-result'),
 ]
