@@ -6,18 +6,19 @@ import math
 class DriverSerializer(serializers.ModelSerializer):
     class Meta:
         model = Driver
-        fields = '__all__'
+        fields = ['first_name', 'last_name', 'code']
 
 class RaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Race
-        fields = '__all__'
+        fields = ['name']
     
 class RaceResultSerializer(serializers.ModelSerializer):
     driver = DriverSerializer()
+    race = RaceSerializer()
     class Meta:
         model = RaceResult
-        fields = '__all__'
+        fields = ['driver', 'race','position', 'points', 'fastest_lap_time']
 
     def to_representation(self, instance):
         """Ensure no NaN or Infinity values break JSON."""
