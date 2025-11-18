@@ -16,4 +16,5 @@ class RaceResultsListView(generics.ListAPIView):
         if round_number:
             queryset = queryset.filter(race__round=round_number)
 
+        """Allows to display results by position number"""
         return queryset.order_by('position')
