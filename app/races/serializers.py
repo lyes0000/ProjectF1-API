@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from drivers.serializers import DriverSerializer
 from .models import Race, RaceResult
-import math
 
 class RaceResultSerializer(serializers.ModelSerializer):
     driver = DriverSerializer()

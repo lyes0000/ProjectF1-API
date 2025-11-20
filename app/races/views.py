@@ -60,7 +60,7 @@ class RaceResultsListView(generics.ListAPIView):
         if driver_code:
             queryset = queryset.filter(driver__code=driver_code)
 
-        return queryset.order_by('race_year', 'race_round', 'position')
+        return queryset.order_by('race__year', 'race__round', 'position')
     
 # Fetch new race data (POST endpoint)
 @api_view(['POST'])
@@ -76,7 +76,7 @@ def fetch_race_view(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     year = serializer.validated_data['year']
-    round = serializer.validate_data.get('round')
+    round = serializer.validated_data.get('round')
     race_name = serializer.validated_data.get('race_name')
 
     # Check if it exists already
