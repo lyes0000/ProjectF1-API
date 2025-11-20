@@ -7,6 +7,7 @@ class Race(models.Model):
     year = models.IntegerField()
     round = models.IntegerField()
     date = models.DateField()
+    country = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return f"{self.name} {self.year}"
