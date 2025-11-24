@@ -68,7 +68,7 @@ class RaceFetchService:
 
             if not created:
                 race.name = session.event['EventName']
-                race.circuit = session.even['Location']
+                race.circuit = session.event['Location']
                 race.date = event_date
                 race.save()
 
@@ -90,7 +90,7 @@ class RaceFetchService:
                 if not laps.empty and 'LapTime' in laps.columns:
                     try:
                         fastest_lap = laps['LapTime'].min()
-                        fastest = self._clean_float(fastest_lap)
+                        fastest = self._clean_float(fastest_lap.total_seconds())
                         #fastestlap = session.laps.pick_drivers(drv).pick_fastest
                     except:
                         fastest = None

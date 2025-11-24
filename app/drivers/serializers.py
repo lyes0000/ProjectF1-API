@@ -11,11 +11,3 @@ class DriverSerializer(serializers.ModelSerializer):
     
     def get_full_name(self, obj):
         return f"{obj.first_name} {obj.last_name}"
-    
-    def to_representation(self, instance):
-        """Ensure no NaN or Infinity values break JSON."""
-        data = super().to_representation(instance)
-        for key, value in data.items():
-            if isinstance(value, float) and (math.isnan(value) or math.isinf(value)):
-                data[key] = None
-        return data
