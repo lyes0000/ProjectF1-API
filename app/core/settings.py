@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     #local apps
     'drivers',
     'races',
+    'ml_predictions'
 ]
 
 MIDDLEWARE = [

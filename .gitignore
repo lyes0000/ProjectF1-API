@@ -20,6 +20,11 @@ venv/
 media/
 staticfiles/
 
+# ML trained models
+app/ml_predictions/ml_models/*.joblib
+app/ml_predictions/ml_models/*.pkl
+
+
 # Docker
 *.env
 docker-compose.override.yml
