@@ -18,6 +18,7 @@ class RaceResult(models.Model):
     position = models.IntegerField()
     points = models.FloatField()
     fastest_lap_time = models.FloatField(null=True, blank=True)
+    dnf = models.BooleanField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.driver} - {self.race} - {self.position}"

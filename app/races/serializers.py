@@ -5,9 +5,19 @@ from .models import Race, RaceResult
 class RaceResultSerializer(serializers.ModelSerializer):
     driver = DriverSerializer()
 
+    fastest_lap_formatted = serializers.SerializerMethodField()
+
     class Meta:
         model = RaceResult
-        fields = ['id', 'driver', 'race', 'position', 'points', 'fastest_lap_time']
+        fields = ['id', 'driver', 'race', 'position', 'points', 'fastest_lap_formatted', 'dnf']
+
+    def get_fastest_lap_formatted(self, obj):
+        if obj.fastest_lap_time is None:
+            return None
+        minutes = int(obj.fastest_lap_time // 60)
+        seconds = obj.fastest_lap_time % 60
+        return f"{minutes}:{seconds:06.3f}"
+
 
 class RaceSerializer(serializers.ModelSerializer):
     results = RaceResultSerializer(many=True, read_only=True)

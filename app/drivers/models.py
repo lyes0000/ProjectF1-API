@@ -4,7 +4,7 @@ class Driver(models.Model):
     code = models.CharField(max_length=10, unique=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    number = models.CharField(max_length=10, unique=True, null=True, blank=True)
+    number = models.CharField(max_length=10, null=True, blank=True)
     team = models.CharField(max_length=100, null=True, blank=True)
     nationality = models.CharField(max_length=100, null=True, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)

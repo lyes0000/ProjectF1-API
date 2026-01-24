@@ -60,7 +60,7 @@ class RaceResultsListView(generics.ListAPIView):
         if driver_code:
             queryset = queryset.filter(driver__code=driver_code)
 
-        return queryset.order_by('race__year', 'race__round', 'position')
+        return queryset.order_by('-race__year', '-race__round', 'position')
     
 # Fetch new race data (POST endpoint)
 @api_view(['POST'])

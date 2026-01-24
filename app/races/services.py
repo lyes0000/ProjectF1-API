@@ -90,7 +90,7 @@ class RaceFetchService:
                 if not laps.empty and 'LapTime' in laps.columns:
                     try:
                         fastest_lap = laps['LapTime'].min()
-                        fastest = self._clean_float(fastest_lap.total_seconds())
+                        fastest_sec = self._clean_float(fastest_lap.total_seconds())
                         #fastestlap = session.laps.pick_drivers(drv).pick_fastest
                     except:
                         fastest = None
@@ -105,7 +105,8 @@ class RaceFetchService:
                     defaults={
                         'position': int(info['Position']) if info.get('Position') else 0,
                         'points': float(info.get('Points', 0)),
-                        'fastest_lap_time': fastest,
+                        'fastest_lap_time': fastest_sec,
+                        'dnf': bool(info.get('dnf', False))
                     }
                 )
 

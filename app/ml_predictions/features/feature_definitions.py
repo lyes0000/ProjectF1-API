@@ -133,7 +133,7 @@ class FeatureDefinitions:
             return 0.0
 
         dnfs = results.filter(
-            position__isnull=True
+            dnf=True
         ).count() + results.filter(
             position=0
         ).count()
