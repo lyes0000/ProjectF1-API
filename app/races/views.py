@@ -8,7 +8,7 @@ from .serializers import (
     RaceResultSerializer,
     FetchRaceRequestSerializer
 )
-from .services import RaceFetchService
+from .services.single_race_fetch_service import RaceFetchService
 
 # List all races
 class RaceListView(generics.ListAPIView):

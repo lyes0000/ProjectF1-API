@@ -4,7 +4,7 @@ import math
 import pandas as pd
 import numpy as np
 from datetime import datetime
-from .models import Race, RaceResult
+from ..models import Race, RaceResult
 from drivers.models import Driver
 
 class RaceFetchService:

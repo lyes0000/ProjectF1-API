@@ -24,19 +24,17 @@ class Command(BaseCommand):
         year = options["year"]
         name = options["name"]
 
-        try:
-            # Load the race
-            race = Race.objects.get(year=year, name=name)
-        except Race.DoesNotExist:
-            raise CommandError(f"Race not found: {name} ({year})")
-
-        # Load the latest trained model
         model_path = "ml_predictions/ml_models/random_forest_v1_latest.joblib"
         predictor = RacePredictor(model_path)
-
-        # Predict
-        predictions = predictor.predict(race)
+        
+        try:
+            predictions = predictor.predict(
+                year=year,
+                race_name=name
+            )
+        except Exception as e:
+            raise Exception(f"prediction failed: {str(e)}")
 
         # Print results
         self.stdout.write(f"Predictions for {name} {year}:")
-        self.stdout.write(str(predictions))
+        self.stdout.write(predictions.to_string(index=False))
