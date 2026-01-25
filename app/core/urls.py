@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('races.urls')),    # Race endpoints
     path('api/', include('drivers.urls')),  # Driver endpoints
+    path('api/ml/', include('ml_predictions.urls')), # ML Prediction endpoints
 ]
 
