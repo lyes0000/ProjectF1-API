@@ -23,7 +23,7 @@ class Command(BaseCommand):
             '--start-year',
             type=int,
             default=2022,
-            help='First year to fetch (default: 2019)'
+            help='First year to fetch (default: 2022)'
         )
         parser.add_argument(
             '--end-year',
@@ -65,7 +65,7 @@ class Command(BaseCommand):
             f"Total rounds: {total_rounds}"
         ))
         self.stdout.write(self.style.WARNING(
-            f"Estimated time: {total_rounds * 1} minutes"
+            f"Estimated time: {total_rounds * 0.2:.2f} minutes"
         ))
         self.stdout.write(self.style.WARNING(
             f"{'='*70}\n"

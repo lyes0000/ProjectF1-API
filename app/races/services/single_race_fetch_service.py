@@ -80,8 +80,10 @@ class RaceFetchService:
                     defaults={
                         'first_name': info['FirstName'],
                         'last_name': info['LastName'],
-                        'number': str(info['DriverNumber']),
+                        'number': info['DriverNumber'],
+                        'team': info['TeamName'],
                         'nationality': info.get('CountryCode', ''),
+                        'headshot_url': info['HeadshotUrl']
                     }
                 )
 

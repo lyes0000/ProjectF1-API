@@ -7,5 +7,6 @@ class RacePredictionSerializer(serializers.Serializer):
     team = serializers.CharField(max_length=20)
     points = serializers.IntegerField()
     win_probability = serializers.FloatField()
+    headshot = serializers.CharField()
 
     

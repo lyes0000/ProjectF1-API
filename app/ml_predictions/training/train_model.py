@@ -97,7 +97,7 @@ class ModelTrainer:
         )
 
         self.model.fit(X_train, y_train)
-        print("✓ Training complete")
+        print("Training complete")
 
         print("\nEvaluating model...")
 
@@ -183,8 +183,8 @@ class ModelTrainer:
         )
         joblib.dump(payload, latest_path)
 
-        print(f"\n✓ Model saved to: {filepath}")
-        print(f"✓ Latest model updated")
+        print(f"\n Model saved to: {filepath}")
+        print(f" Latest model updated")
 
         return filepath
 

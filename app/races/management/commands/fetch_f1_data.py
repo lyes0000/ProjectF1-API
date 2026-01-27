@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from app.races.services.single_race_fetch_service import RaceFetchService
+from races.services.single_race_fetch_service import RaceFetchService
 
 class Command(BaseCommand):
     help = "Fetch Formula 1 race data using FastF1"

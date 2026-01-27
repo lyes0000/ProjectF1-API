@@ -38,6 +38,7 @@ class RacePredictionAPIView(APIView):
                     "team": driver.team,
                     "points": 0,
                     "win_probability": round(row.win_probability, 4),
+                    "headshot": driver.headshot_url
                 })
 
             serializer = RacePredictionSerializer(response_data, many=True)

@@ -8,6 +8,7 @@ class Driver(models.Model):
     team = models.CharField(max_length=100, null=True, blank=True)
     nationality = models.CharField(max_length=100, null=True, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
+    headshot_url = models.CharField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} ({self.code})"
